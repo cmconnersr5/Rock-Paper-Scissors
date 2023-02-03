@@ -2,25 +2,30 @@ function getUserSelection(){
 let rock = document.querySelector('#btn1')
     let rockSelection = () => {
         let a = 'rock'
-        return(a);}
+        console.log(a);
+    }
     rock.addEventListener('click', rockSelection)
     
 
 let paper = document.querySelector('#btn2')
     function paperSelection() {
         let b = 'paper'
-        return(b);}
+        console.log(b);
+    }
     paper.addEventListener('click', paperSelection)
 
 
 let scissors = document.querySelector('#btn3')
+    scissors.addEventListener('click', scissorSelection)
     function scissorSelection() {
         let c = 'scissors'
-        return(c)}  
+        console.log(c)
+    }  
     scissors.addEventListener('click', scissorSelection)
 }
 
 let playerSelection = getUserSelection();
+
 function playRound(playerSelection, computerSelection) {  
     if (playerSelection == computerSelection){
         console.log("Player Chose " + playerSelection);
