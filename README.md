@@ -1,2 +1,2 @@
 # rps
-rps_actual
+Rock, Paper, Scissors
