@@ -1,30 +1,62 @@
-function getUserSelection(){
+//to-do: 
+// fix the computer choice string display
+// add result display
+// add button effects and styles
+// stye computer choice display
+
 let rock = document.querySelector('#btn1')
-    let rockSelection = () => {
-        let a = 'rock'
-        console.log(a);
+    rock.addEventListener('click', playRock)
+    function playRock(){
+        let playerSelection="rock";
+        let computerSelection=Math.random()
+            if (computerSelection <= 0.34){
+            computerSelection="rock";
+            } else if (computerSelection <= 0.67){
+            computerSelection="paper";
+            } else {
+            computerSelection="scissors";
+            }
+        const container = document.getElementById('compChoice');
+        const text = document.createTextNode(computerSelection);
+        container.appendChild(text);    
+        playRound(playerSelection,computerSelection);
     }
-    rock.addEventListener('click', rockSelection)
     
-
 let paper = document.querySelector('#btn2')
-    function paperSelection() {
-        let b = 'paper'
-        console.log(b);
+    paper.addEventListener('click', playPaper)
+    function playPaper() {
+        let playerSelection="paper";
+        let computerSelection=Math.random()
+            if (computerSelection <= 0.34){
+            computerSelection="rock";
+            } else if (computerSelection <= 0.67){
+            computerSelection="paper";
+            } else {
+            computerSelection="scissors";
+            }
+        const container = document.getElementById('compChoice');
+        const text = document.createTextNode(computerSelection);
+        container.appendChild(text);
+        playRound(playerSelection,computerSelection);
     }
-    paper.addEventListener('click', paperSelection)
-
 
 let scissors = document.querySelector('#btn3')
-    scissors.addEventListener('click', scissorSelection)
-    function scissorSelection() {
-        let c = 'scissors'
-        console.log(c)
-    }  
-    scissors.addEventListener('click', scissorSelection)
-}
-
-let playerSelection = getUserSelection();
+    scissors.addEventListener('click', playScissors)
+    function playScissors (){
+        let playerSelection="scissors";
+        let computerSelection=Math.random()
+            if (computerSelection <= 0.34){
+            computerSelection="rock";
+            } else if (computerSelection <= 0.67){
+            computerSelection="paper";
+            } else {
+            computerSelection="scissors";
+            }
+        const container = document.getElementById('compChoice');
+        const text = document.createTextNode(computerSelection);
+        container.appendChild(text);    
+        playRound(playerSelection,computerSelection);
+    }
 
 function playRound(playerSelection, computerSelection) {  
     if (playerSelection == computerSelection){
@@ -50,14 +82,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
 //generate computer selection randomly
-let computerSelection=Math.random()
-    if (computerSelection <= 0.34){
-        computerSelection="rock";
-    } else if (computerSelection <= 0.67){
-        computerSelection="paper";
-    } else {
-        computerSelection="scissors";
-    }
-    
-playRound(playerSelection, computerSelection);
+// let computerSelection=Math.random()
+//     if (computerSelection <= 0.34){
+//         computerSelection="rock";
+//     } else if (computerSelection <= 0.67){
+//         computerSelection="paper";
+//     } else {
+//         computerSelection="scissors";
+//     }
