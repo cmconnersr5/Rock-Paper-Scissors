@@ -15,7 +15,13 @@ h1 {
 
 }
 
-.buttons {
+h3 {
+    color: maroon;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+.buttons .compButtons{
     display: flex;
     margin: 15px;
     gap: 15px;
@@ -23,11 +29,31 @@ h1 {
 
 button {
     background-color: greenyellow;
-    border-radius: 5px;
-    max-width: 500px;
+    border-radius: 10px;
     padding: 50px;
-    
+    transition: all 0.07s;
 }
+
+.playAgain {
+    display: flex;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn7 {
+    width: 500px;
+    background-color: green;
+    color: palegoldenrod;
+    font-size: 25px;
+}
+
+.selected {
+    transform: scale(1.1);
+    border-color: red;
+    box-shadow: 0 0 5px red;
+}
+
 
 h3.computerChoice {
     margin-top: 50px;
