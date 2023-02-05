@@ -1,5 +1,3 @@
-//to-do: 
-// add scorekeeper and 5 win limit
 function game(){
 let playerTally = 0;
 let compTally = 0;
@@ -8,6 +6,7 @@ let playerPara = document.getElementById('playerPara');
 let compPara =document.getElementById('compPara');
 playerPara.textContent =`Player ${playerTally}`;
 compPara.textContent = `Computer ${compTally}`;
+
 
 // set player selection to rock and get computerSelection
 const rock = document.querySelector('#btn1')
@@ -35,6 +34,8 @@ const rock = document.querySelector('#btn1')
         stateHandle();  
         playRound(playerSelection,computerSelection);
     };
+
+
 //set player selection to paper and get computerSelection   
 const paper = document.querySelector('#btn2')
     paper.addEventListener('click', playPaper)
@@ -60,6 +61,8 @@ const paper = document.querySelector('#btn2')
         stateHandle();
         playRound(playerSelection,computerSelection);
     };
+
+
 //set player selection to scissors and get computerSelection
 const scissors = document.querySelector('#btn3')
     scissors.addEventListener('click', playScissors)
@@ -85,6 +88,7 @@ const scissors = document.querySelector('#btn3')
         stateHandle(); 
         playRound(playerSelection,computerSelection);
     };
+
 
 //logic for RPS game
 function playRound(playerSelection, computerSelection) {  
@@ -151,6 +155,7 @@ function playRound(playerSelection, computerSelection) {
     };
 };
 
+
 // allow only one selection
 function stateHandle(){
     if (res.classList.contains('.disable')){
@@ -172,5 +177,6 @@ const playAgain = document.querySelector('#btn7')
         const dispClear = document.querySelector('#result')
         dispClear.textContent=''
     });
-}
-game()
+};
+
+game();

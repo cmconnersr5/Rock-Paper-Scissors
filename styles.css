@@ -72,3 +72,14 @@ h3.computerChoice {
     text-decoration: underline;
 }
 
+#scores {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    color: maroon;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 5px darkgoldenrod;
+    border-style: dashed;
+    padding: 15px;
+}
+
