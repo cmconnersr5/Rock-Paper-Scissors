@@ -4,8 +4,10 @@ function game(){
 let playerTally = 0;
 let compTally = 0;
 const res = document.querySelector('#result');
-
-
+let playerPara = document.getElementById('playerPara');
+let compPara =document.getElementById('compPara');
+playerPara.textContent =`Player ${playerTally}`;
+compPara.textContent = `Computer ${compTally}`;
 
 // set player selection to rock and get computerSelection
 const rock = document.querySelector('#btn1')
@@ -84,19 +86,6 @@ const scissors = document.querySelector('#btn3')
         playRound(playerSelection,computerSelection);
     };
 
-// //play again funtion, removes effects and result display
-// const playAgain = document.querySelector('#btn7')
-//     playAgain.addEventListener('click', () => {
-//         const buttonAll = document.querySelectorAll('.button');
-//         buttonAll.forEach(button => {
-//             button.classList.remove('selected');
-//             let x = document.querySelectorAll('.button')
-//             x.forEach(button => {button.disabled = false})
-//         });
-//         const dispClear = document.querySelector('#result')
-//         dispClear.textContent=''
-//     });
-
 //logic for RPS game
 function playRound(playerSelection, computerSelection) {  
     if (playerSelection == computerSelection){
@@ -115,6 +104,8 @@ function playRound(playerSelection, computerSelection) {
         console.log("Player Wins!")
         playerTally++
         console.log(playerTally)
+        playerPara.textContent =`Player ${playerTally}`;
+        compPara.textContent = `Computer ${compTally}`;
     } else if (playerSelection == "paper" && computerSelection == "rock"){
         console.log("Player Chose " + playerSelection);
         console.log("Computer Chose " + computerSelection);
@@ -124,6 +115,8 @@ function playRound(playerSelection, computerSelection) {
         console.log("Player Wins!");
         playerTally++
         console.log(playerTally)
+        playerPara.textContent =`Player ${playerTally}`;
+        compPara.textContent = `Computer ${compTally}`;
     } else if (playerSelection == "scissors" && computerSelection == "paper"){
         console.log("Player Chose " + playerSelection);
         console.log("Computer Chose " + computerSelection);
@@ -133,6 +126,8 @@ function playRound(playerSelection, computerSelection) {
         console.log("Player Wins!");
         playerTally++
         console.log(playerTally)
+        playerPara.textContent =`Player ${playerTally}`;
+        compPara.textContent = `Computer ${compTally}`;
     } else {
         console.log("Player Chose " + playerSelection);
         console.log("Computer Chose " + computerSelection);
@@ -142,6 +137,8 @@ function playRound(playerSelection, computerSelection) {
         console.log("Computer Wins!")
         compTally++
         console.log(compTally)
+        playerPara.textContent =`Player ${playerTally}`;
+        compPara.textContent = `Computer ${compTally}`;
     }
     if (playerTally === 5){
         alert('Player Got 5 Wins!')
