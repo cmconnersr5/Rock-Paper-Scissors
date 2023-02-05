@@ -11,7 +11,8 @@ h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 75px;
     padding-bottom: 50px;
-    padding-top: 100px;
+    padding-top: 50px;
+    margin-top: 0px;
 
 }
 
@@ -63,4 +64,10 @@ h3.computerChoice {
     border-radius: 5px;
     max-width: 500px;
     padding: 50px;
+}
+
+.display {
+    font-size: 50px;
+    color: darkgoldenrod;
+    text-decoration: underline;
 }
