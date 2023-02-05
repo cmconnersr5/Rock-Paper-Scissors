@@ -1,8 +1,14 @@
 //to-do: 
 // add scorekeeper and 5 win limit
-// add single iteration functionality / disable buttons after click
+function game(){
+let playerTally = 0;
+let compTally = 0;
 const res = document.querySelector('#result');
-let rock = document.querySelector('#btn1')
+
+
+
+// set player selection to rock and get computerSelection
+const rock = document.querySelector('#btn1')
     rock.addEventListener('click', playRock)
     function playRock(){
         res.classList.add('.disable');
@@ -26,9 +32,9 @@ let rock = document.querySelector('#btn1')
             }
         stateHandle();  
         playRound(playerSelection,computerSelection);
-    }
-    
-let paper = document.querySelector('#btn2')
+    };
+//set player selection to paper and get computerSelection   
+const paper = document.querySelector('#btn2')
     paper.addEventListener('click', playPaper)
     function playPaper() {
         res.classList.add('.disable');
@@ -51,9 +57,9 @@ let paper = document.querySelector('#btn2')
             }
         stateHandle();
         playRound(playerSelection,computerSelection);
-    }
-
-let scissors = document.querySelector('#btn3')
+    };
+//set player selection to scissors and get computerSelection
+const scissors = document.querySelector('#btn3')
     scissors.addEventListener('click', playScissors)
     function playScissors (){
         res.classList.add('.disable');
@@ -76,18 +82,20 @@ let scissors = document.querySelector('#btn3')
             }
         stateHandle(); 
         playRound(playerSelection,computerSelection);
-    }
+    };
 
-//play again funtion, removes effects and result display
-const playAgain = document.querySelector('#btn7')
-    playAgain.addEventListener('click', () => {
-        const buttonAll = document.querySelectorAll('.button');
-        buttonAll.forEach(button => {
-            button.classList.remove('selected');
-        });
-        const dispClear = document.querySelector('#result')
-        dispClear.textContent=''
-    });
+// //play again funtion, removes effects and result display
+// const playAgain = document.querySelector('#btn7')
+//     playAgain.addEventListener('click', () => {
+//         const buttonAll = document.querySelectorAll('.button');
+//         buttonAll.forEach(button => {
+//             button.classList.remove('selected');
+//             let x = document.querySelectorAll('.button')
+//             x.forEach(button => {button.disabled = false})
+//         });
+//         const dispClear = document.querySelector('#result')
+//         dispClear.textContent=''
+//     });
 
 //logic for RPS game
 function playRound(playerSelection, computerSelection) {  
@@ -105,6 +113,8 @@ function playRound(playerSelection, computerSelection) {
         res.appendChild(disp);
         res.classList.add('display')
         console.log("Player Wins!")
+        playerTally++
+        console.log(playerTally)
     } else if (playerSelection == "paper" && computerSelection == "rock"){
         console.log("Player Chose " + playerSelection);
         console.log("Computer Chose " + computerSelection);
@@ -112,6 +122,8 @@ function playRound(playerSelection, computerSelection) {
         res.appendChild(disp);
         res.classList.add('display')
         console.log("Player Wins!");
+        playerTally++
+        console.log(playerTally)
     } else if (playerSelection == "scissors" && computerSelection == "paper"){
         console.log("Player Chose " + playerSelection);
         console.log("Computer Chose " + computerSelection);
@@ -119,6 +131,8 @@ function playRound(playerSelection, computerSelection) {
         res.appendChild(disp);
         res.classList.add('display')
         console.log("Player Wins!");
+        playerTally++
+        console.log(playerTally)
     } else {
         console.log("Player Chose " + playerSelection);
         console.log("Computer Chose " + computerSelection);
@@ -126,8 +140,19 @@ function playRound(playerSelection, computerSelection) {
         res.appendChild(disp);
         res.classList.add('display')
         console.log("Computer Wins!")
+        compTally++
+        console.log(compTally)
     }
-}
+    if (playerTally === 5){
+        alert('Player Got 5 Wins!')
+        playerTally = 0;
+        compTally = 0;
+    } else if (compTally === 5){
+        alert('Computer Got 5 Wins!')
+        playerTally = 0;
+        compTally = 0;
+    };
+};
 
 // allow only one selection
 function stateHandle(){
@@ -135,15 +160,20 @@ function stateHandle(){
         let x = document.querySelectorAll('.button')
         x.forEach(button => {button.disabled = true})
         };
-}
- 
+};
 
-//generate computer selection randomly
-// let computerSelection=Math.random()
-//     if (computerSelection <= 0.34){
-//         computerSelection="rock";
-//     } else if (computerSelection <= 0.67){
-//         computerSelection="paper";
-//     } else {
-//         computerSelection="scissors";
-//     }
+
+//play again funtion, removes effects and result display
+const playAgain = document.querySelector('#btn7')
+    playAgain.addEventListener('click', () => {
+        const buttonAll = document.querySelectorAll('.button');
+        buttonAll.forEach(button => {
+            button.classList.remove('selected');
+            let x = document.querySelectorAll('.button')
+            x.forEach(button => {button.disabled = false})
+        });
+        const dispClear = document.querySelector('#result')
+        dispClear.textContent=''
+    });
+}
+game()
